@@ -1,4 +1,4 @@
-# Active-Directory-Based-Enterprise-Network-Deployment-Using-Virtual-Machines-Systems-Administration
+# Active Directory Enterprise Network Deployment
 
 <h2>Description</h2>
 This project showcases a full-scale internal network setup for an enterprise environment using Active Directory Domain Services, all within a virtual lab. It walks through the detailed process of creating departments and user accounts tailored to organizational needs, all managed centrally through a domain controller.
@@ -17,10 +17,9 @@ In this configuration, devices within the internal network access the public int
 <h2>Environments Used </h2>
 
 - <b>Windows Server (2019)</b>
+- <b>Windows 10 (Pro)</b>
 - <b>Active Directory Domain Services (AD DS)</b>
 - <b>Internal Network (via VirtualBox NAT or Host-Only Adapter)</b>
-- <b>Log Analytics workspaces</b>
-- <b>Windows Defender Firewall</b>
 - <b>DNS & DHCP Services</b>
 - <b>Remote Desktop Services (RDP)</b>
 

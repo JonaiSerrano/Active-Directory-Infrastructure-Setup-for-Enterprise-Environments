@@ -82,6 +82,11 @@ Now we will setup the Username(s) and Password(s)
   - Set up a basic username and password, something easy for testing. 
   - Allocate between 2GB to 4GB of RAM depending on your system. 
   - You can leave the rest of the settings as they are.
+  - At least 50gb of allocated space
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20213329.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20213256.png?raw=true)
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
 
@@ -544,7 +549,41 @@ As we can see, all the users have been successfully added inside the _USERS fold
 
 <h2>Step 9: Creating the Windows 10 Virtual Machine </h2><br />
 
-Start by booting up your Windows 10 VM. Once it’s running, open Network Settings and make sure it’s connected to the Internal Network—the same one your domain controller is using.
+Start by booting up your Windows 10 VM.
+
+Open up VirtualBox
+  - Select "NEW"
+  - Name the VM "*Client1*"
+  - Select the correct ISO image from wherever they are on your disk 
+    - (You should have downloaded to your Desktop)
+      - Don't choose the Server ISO!
+  - Click ""Next""
+  - Ideally 2-4 cores
+  - Allocate between 2GB to 4GB of RAM depending on your system.
+  - Same as before 50gb of allocated storage 
+  - You can leave the rest of the settings as they are.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20213329.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20213256.png?raw=true)
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
+
+
+
+Let’s tweak a few general settings to make working with the VMs smoother.
+  - Enable Bidirectional Clipboard and Drag-and-Drop so you can easily move files and text between your host and the virtual machines.
+
+
+
+
+
+
+
+
+
+
+Once it’s running, open Network Settings and make sure it’s connected to the Internal Network—the same one your domain controller is using.
 
 
 

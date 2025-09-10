@@ -213,8 +213,91 @@ Back in Server Manager, you’ll see a yellow flag
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20175332.png?raw=true)
 
+- Click Next all the way through until you’re prompted to installon the "Prerequisites Check"
+- Click Install
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20175539.png?raw=true)
+
+The server will sign out and reboot automatically
+
+Once it reboots, log back in 
+
+You’ll notice the login now says "MYDOMAIN\Administrator"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20180317.png?raw=true)
+
+Go ahead and log back in
+- Click the Start menu and go to Windows Administrative Tools. 
+- From there, open Active Directory Users and Computers.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20180722.png?raw=true)
 
 
+<hr>
+
+<h2>Step 4: Creating an Organizational Unit </h2><br />
+
+Let’s create an organizational unit to store our admin account. You can think of it like a folder inside Active Directory.
+
+Make sure you have Active Directory open for the next steps
+
+- Right-click on mydomain.com 
+
+- Select New Organizational Unit 
+ 
+- Name it "_Admins"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-10%20174545.png?raw=true)
+
+- Once the folder is created right-click on it 
+- Select New 
+- Select User
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20181526.png?raw=true)
+
+- Type in the desired name.
+  - For the logon name, it’s common practice to prefix with a- to indicate an admin role (e.g., a-jonai)
+- Click Next
+
+In our case we went with "<u>-aJdoe</u>" for "John Doe"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20181628.png?raw=true)
+
+- Choose a simple password like "Password1" 
+- Uncheck User must change password at next logon 
+- Check Password never expires
+
+Click Next → Finish
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20181757.png?raw=true)
+
+Now we’ve created the user, and even though it has the "-a"  it’s not an admin yet
+
+Let’s fix that.
+
+- Right-click the user 
+- Then click Properties
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20181933.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20182134.png?raw=true)
+
+- Go to the "Member Of" tab 
+- Click Add 
+- Type "Domain Admins" 
+- Click OK 
+- Then Apply
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20182232.png?raw=true)
+
+You now have a Domain Admin account!
+
+To confirm, let's sign out of the server.
+
+You should see an option to sign in as another user
+- Use the credentials you just created
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20182740.png?raw=true)
 
 <br />
 <br />
@@ -223,6 +306,7 @@ Back in Server Manager, you’ll see a yellow flag
 <br />
 <br />
 <br />
+<h2>Step 3: Configuring the Internal NIC </h2><br />
 
 <br />
 <h3>Disclaimer</h3>

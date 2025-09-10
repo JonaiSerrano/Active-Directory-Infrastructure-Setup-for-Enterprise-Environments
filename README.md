@@ -40,7 +40,6 @@ In this configuration, devices within the internal network access the public int
 
 <hr>
 
-
 <h1>Initial Setup</h1><br />
 
 <p align="left">
@@ -74,7 +73,7 @@ Open up VirtualBox
     - For example "*Domain Controller*" and "*Client1*"
   - Select the correct ISO image from wherever they are on your disk 
     - (You should have downloaded to your Desktop)
-  - Click "Next"
+  - Click ""Next""
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20151900.png?raw=true)
 
@@ -107,7 +106,7 @@ Double click on the VM to boot and wait for it to go through its boot-up process
 Proceed till you are given to choose an “Operating System”
   - Choose Windows Server 2019 (DESKTOP EXPERIENCE)
     - If you do not select Desktop you will be left with the CMD and no UI
-  - Click Next  
+  - Click "Next"  
   - Accept the license terms
 
 
@@ -140,9 +139,92 @@ Run the installer. Now we manually shut down and restart the VM.
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161854.png?raw=true)
 
+<br />
+<hr>
+
+<h2>Step 3: Configuring the Internal NIC </h2><br />
+
+The external NIC will be automatically assigned by your home router so we don't need to configure it.
+
+We need to configure the internal NIC so the machines can communicate with each other.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20165551.png?raw=true)
+
+Go to Ethernet Settings → Change Adapter Options
+
+- Find the adapter with the auto-assigned DHCP IP and rename it to "__Internal__" 
+
+- Rename the other one to "__Internet__"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20165909.png?raw=true)
+
+You can see that the one below has an assigned IP from your home/office network.
+
+That will be our "__External__" network - No need to change anything
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20170119.png?raw=true)
+
+Select the “__Internal__” network and open the Properties menu. 
+- Choose TCP/IPv4 and enter the following:
+  - IP Address: 172.16.0.1
+  - Subnet Mask: 255.255.255.0
+  - Default Gateway: (leave blank)
+  - Preferred DNS: 127.0.0.1 (loopback address)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20173717.png?raw=true)
+
+At this point, both NICs are configured.
 
 <br />
 <hr>
+
+<h2>Step 4: Creating the Domain and Users </h2>
+
+Now we need to open Server Manager and select Add Roles and Features
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20174309.png?raw=true)
+
+- Click "Next" three times until you reach the "Server Roles" tab 
+ - Select Active Directory Domain Services 
+ - Click Add Features
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20174614.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20174705.png?raw=true)
+
+- Click "Next" through each section until you reach the Install button .
+- Click Install and wait, it may take a few minutes.
+
+Once it finishes, close the window
+
+<hr>
+
+
+Back in Server Manager, you’ll see a yellow flag 
+
+- Click "Promote this server to a domain controller"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20174934.png?raw=true)
+
+- Choose "Add a new forest" 
+- Name it however you like, for example: mydomain.com
+- Click "Next"
+  - Set a password
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20175332.png?raw=true)
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<br />
 <h3>Disclaimer</h3>
 - This content is intended solely for educational purposes. Any replication, in whole or in part, for malicious or unethical use may constitute a legal offense.
 - “Screenshots are for demonstration only. Please do not reuse without permission.”

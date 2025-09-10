@@ -195,7 +195,7 @@ Now we need to open Server Manager and select Add Roles and Features
 - Click "Next" through each section until you reach the Install button .
 - Click Install and wait, it may take a few minutes.
 
-Once it finishes, close the window
+<b>Once it finishes, close the window</b>
 
 <hr>
 
@@ -235,7 +235,7 @@ Go ahead and log back in
 
 <hr>
 
-<h2>Step 4: Creating an Organizational Unit </h2><br />
+<h2>Step 5: Creating an Organizational Unit </h2><br />
 
 Let’s create an organizational unit to store our admin account. You can think of it like a folder inside Active Directory.
 
@@ -296,20 +296,213 @@ To confirm, let's sign out of the server.
 
 You should see an option to sign in as another user
 - Use the credentials you just created
+  - Username = -ajdoe
+  - Password = Password1
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20182740.png?raw=true)
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<h2>Step 3: Configuring the Internal NIC </h2><br />
+<b>🎉 Success! You’ve officially created your domain and admin account.</b>
 
+<br />
+<hr>
+
+<h2>Step 6: INSTALL RAS/NAT </h2><br />
+
+Next, we’ll install RAS/NAT (Remote Access Server & Network Address Translation) on the domain controller
+
+This lets the client VM access the internet through the domain controller, even on a private virtual network.
+
+The image below shows the path we are taking from client1 all the way to the Domain Controller then accessing the outside internet.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20184239.png?raw=true)
+
+- Go back to Server Manager
+- Add Roles and Features
+  - Skip ahead to Server Roles
+- Select Remote Access Click Next
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20184439.png?raw=true)
+
+- Keep clicking Next until you reach:
+- Role Services 
+- Then Select Routing 
+- Click Add Features 
+- Click Next
+- Click Install
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20185514.png?raw=true)
+
+Once installed, go back to Server Manager 
+- On the top right click "Tools" 
+- Then click "Routing and Remote Access"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20190148.png?raw=true)
+
+<b>This single next step is for those that have a Installation Wizard come up:</b>
+- Click "next" through the wizard until you reach Configuration
+
+Now you should see the following:
+- Right click on "DomainController"
+- Then click "Configure and Enable Routing and Remote Access"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20190319.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20190358.png?raw=true)
+
+- After it opens click Next to go to the next page
+
+- Select Network Address Translation (NAT) 
+  - This allows internal clients to connect to the internet using one public IP
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20190520.png?raw=true)
+
+- Select the Internet interface you created earlier
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20190811.png?raw=true)
+
+- Click Next
+
+- Review the settings and click Finish
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20191220.png?raw=true)
+
+<b>As you can see below, everything was configured correctly. We succesfully created RAS/NAT</b>
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20191400.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20191612.png?raw=true)
+<br />
+<hr>
+
+<h2>Step 7: Configuring DHCP </h2><br />
+
+To allow Windows clients to access the internet, we need to install DHCP. The DHCP server automatically assigns IP addresses to clients so they can connect to the network.
+
+
+The DHCP server assigns IP addresses to clients so they can navigate the web
+
+<br />
+
+- Open Server Manager
+- Add Roles and Features Click Next until you reach the Server Roles section
+- Select DHCP Server Click Add Features
+- Next 
+- Install
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20194338.png?raw=true)
+
+- Once installed, go to the Tools tab in the top-right corner of Server Manager 
+- Find and click on DHCP
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20194800.png?raw=true)
+
+Inside the DHCP console, you’ll see both IPv4 and IPv6 listed 
+
+- Right-click on IPv4 and select New Scope
+- Click Next 
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195043.png?raw=true)
+
+As you can see this is the scope we will be following.
+
+https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195257.png?raw=true
+
+For the name, use something descriptive like the IP range shown in the scope:
+
+- Example: 172.16.0.100-200
+  - Don't worry about a description
+- Click Next
+
+https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195558.png?raw=true
+
+  - Set the following:
+    - Start IP: 172.16.0.100
+    - End IP: 172.16.0.200
+    - Length: 24
+    - Subnet Mask: 255.255.255.0
+  - Click Next
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195638.png?raw=true)
+
+Skip the Exclusions page
+
+On the Lease Duration page, leave the default settings
+- If you're setting this up for a café or business with short-term users, you can reduce the lease time later.
+- We will ignore and press next
+
+On the DHCP Options page, leave "Yes" selected 
+- This lets clients know which servers to use
+
+On the Router page, enter the IP of the internal NIC: 
+- 172.16.0.1 
+- Click Add
+- Click Next
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20200210.png?raw=true)
+
+On the Domain Name and DNS Servers page
+- Leave the domain as-is 
+- Use the domain controller as your DNS server
+- Click Next
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20200405.png?raw=true)
+
+- On the Active Scope page
+- Select Yes then Next
+- Select “Finish”
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20200444.png?raw=true)
+
+Once you have it added, Right click on your domain inside of the DHCP window and click Authorize
+- Right click and press "Refresh" and you will see your scope, leases, reservations, etc
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20200649.png?raw=true)
+
+<br>
+<hr>
+
+<h2>Step 8: PowerShell Scripts to Create Users </h2><br />
+
+To save time, we’ll use a PowerShell script to bulk-create users.
+
+Open Internet Explorer and paste the following link:
+- https://github.com/joshmadakor1/AD_PS/archive/master.zip
+    - This is an open-source PowerShell script by Josh Madakor. It will begin downloading immediately.
+
+Once prompted, click "Save As" and choose Desktop as the location. This makes it easier to find. Then extract the contents to the desktop as well
+
+<h4> If for some reason you cannot access the link through Internet Explorer follow the next step, if you can access it skip this step</h4>
+
+Navigate to your Server Manager and click on
+- 1 Configure this local server
+- Find the "IE Enhanced Security Configuration"
+  - We are turning them both off
+- This will now allow you to open the link shown above
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20200921.png?raw=true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br />
 <h3>Disclaimer</h3>
 - This content is intended solely for educational purposes. Any replication, in whole or in part, for malicious or unethical use may constitute a legal offense.
 - “Screenshots are for demonstration only. Please do not reuse without permission.”
-
+<hr>

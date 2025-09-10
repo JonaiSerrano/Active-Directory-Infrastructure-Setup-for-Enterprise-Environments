@@ -119,10 +119,22 @@ Choose Custom Install when prompted.
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20160051.png?raw=true)
 
+Once it’s done, you’ll be asked to set a password. 
+- Pick something simple and easy to remember for now.
 
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161027.png?raw=true)
 
+Success! Your server is up and running.
 
+<h5> Tip (Optional)</h5>
 
+Once inside the machine find the top menu that says "Devices" → Insert Guest Additions CD. This lets the VM resize automatically and improves the user interface.
+- Navigate to File Explorer and locate the VirtualBox Additions file. 
+- Open it and choose the AMD64 installer.
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161504.png?raw=true)
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161600.png?raw=true)
 
 <br />
 <hr>

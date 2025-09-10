@@ -84,29 +84,48 @@ Now we will setup the Username(s) and Password(s)
   - Allocate between 2GB to 4GB of RAM depending on your system. 
   - You can leave the rest of the settings as they are.
 
-<<<<<<< HEAD
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
 
+Let’s tweak a few general settings to make working with the VMs smoother.
+  - Enable Bidirectional Clipboard and Drag-and-Drop so you can easily move files and text between your host and the virtual machines.
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152314.png?raw=true)
+
+<br />
+<hr>
+
+<h2>! The next steps apply only to the Domain Controller VM: !</h2>
+
+  - Add a second network adapter. 
+  - Set it to Internal Network 
+    - This lets your virtual machines talk to each other privately.
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20154018.png?raw=true)
+
+Double click on the VM to boot and wait for it to go through its boot-up process. 
+
+Proceed till you are given to choose an “Operating System”
+  - Choose Windows Server 2019 (DESKTOP EXPERIENCE)
+    - If you do not select Desktop you will be left with the CMD and no UI
+  - Click Next  
+  - Accept the license terms
+
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20155834.png?raw=true)
+
+Choose Custom Install when prompted.
+  - Select the default disk that appears and click Install.
+  - Now sit back and let the installation run.
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20160051.png?raw=true)
 
 
 
 
 
 
-
-
-
-
-
-
-
-=======
-![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
-
-
-
-
->>>>>>> c375802963220c378c8bc66d3f38f21c84fed0c6
+<br />
+<hr>
 <h3>Disclaimer</h3>
 - This content is intended solely for educational purposes. Any replication, in whole or in part, for malicious or unethical use may constitute a legal offense.
 - “Screenshots are for demonstration only. Please do not reuse without permission.”

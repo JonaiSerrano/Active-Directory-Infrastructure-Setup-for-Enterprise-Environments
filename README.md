@@ -84,11 +84,29 @@ Now we will setup the Username(s) and Password(s)
   - Allocate between 2GB to 4GB of RAM depending on your system. 
   - You can leave the rest of the settings as they are.
 
+<<<<<<< HEAD
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+=======
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
+
+
+
+
+>>>>>>> c375802963220c378c8bc66d3f38f21c84fed0c6
 <h3>Disclaimer</h3>
 - This content is intended solely for educational purposes. Any replication, in whole or in part, for malicious or unethical use may constitute a legal offense.
 - “Screenshots are for demonstration only. Please do not reuse without permission.”

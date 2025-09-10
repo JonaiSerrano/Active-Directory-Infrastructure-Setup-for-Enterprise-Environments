@@ -405,7 +405,7 @@ Inside the DHCP console, you’ll see both IPv4 and IPv6 listed
 
 As you can see this is the scope we will be following.
 
-https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195257.png?raw=true
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195257.png?raw=true)
 
 For the name, use something descriptive like the IP range shown in the scope:
 
@@ -413,7 +413,7 @@ For the name, use something descriptive like the IP range shown in the scope:
   - Don't worry about a description
 - Click Next
 
-https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195558.png?raw=true
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20195558.png?raw=true)
 
   - Set the following:
     - Start IP: 172.16.0.100

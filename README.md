@@ -469,17 +469,90 @@ Open Internet Explorer and paste the following link:
 - https://github.com/joshmadakor1/AD_PS/archive/master.zip
     - This is an open-source PowerShell script by Josh Madakor. It will begin downloading immediately.
 
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20202502.png?raw=true)
+
 Once prompted, click "Save As" and choose Desktop as the location. This makes it easier to find. Then extract the contents to the desktop as well
 
-<h4> If for some reason you cannot access the link through Internet Explorer follow the next step, if you can access it skip this step</h4>
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20203201.png?raw=true)
+
+<hr>
+
+
+<h4>If for some reason you cannot access the link through Internet Explorer follow the next step</h4>
+
+<h4>*If you CAN access the link, skip this step*</h4>
 
 Navigate to your Server Manager and click on
 - 1 Configure this local server
 - Find the "IE Enhanced Security Configuration"
   - We are turning them both off
-- This will now allow you to open the link shown above
+- You will now allow you to open the link shown above
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20200921.png?raw=true)
+
+<hr>
+
+Open the Names.txt file 
+- You’ll see a pre-generated list of names for the user accounts
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20205732.png?raw=true)
+
+Next, run PowerShell ISE as Administrator
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20205914.png?raw=true)
+
+Click the folder icon to open the Create Users PowerShell script
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20210031.png?raw=true)
+
+Before running it, we need to allow script execution 
+
+Run the following command:
+- Set-ExecutionPolicy Unrestricted
+- Then when prompted. Select "Yes to All"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20210401.png?raw=true)
+
+This PowerShell script generates a large number of random user accounts with synthetic first and last names. 
+
+Each account is created in Active Directory with a default password and placed in a specific organizational unit. 
+
+It uses a loop and a custom name generator to automate bulk provisioning.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20210147.png?raw=true)
+
+Last thing before we execute 
+- Navigate to the correct directory
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20210811.png?raw=true)
+
+Once you’re in the right folder, press Play at the top of PowerShell
+- If prompted, click Run Once
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20211006.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20211119.png?raw=true)
+
+The script is fully customizable—you can tweak it to add or remove specific attributes when creating accounts.
+
+As we can see, all the users have been successfully added inside the _USERS folder within Active Directory.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20212548.png?raw=true)
+
+<br>
+<hr>
+
+<h2>Step 9: Creating the Windows 10 Virtual Machine </h2><br />
+
+Start by booting up your Windows 10 VM. Once it’s running, open Network Settings and make sure it’s connected to the Internal Network—the same one your domain controller is using.
+
+
+
+
+
+
+
+
 
 
 

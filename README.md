@@ -44,14 +44,48 @@ In this configuration, devices within the internal network access the public int
 <h1>Initial Setup</h1><br />
 
 <p align="left">
-<h2>Step 1: VirtualBox setup</h2><br />
+<h2>Step 1: Downloads (Tools and Programs)</h2><br />
 	
-For the required environment and number of devices and systems, we need a virtual environment where we will be able to set up our devices in the network. For that, we are going to use VirtualBox VMware. 
-<a href="https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html">Oracle VirtualBox</a><br/>
+For the required environment and number of devices and systems, we need a virtual environment where we will be able to set up our devices in the network. For that, we are going to use VirtualBox VMware.
+<a href="https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html">Download Oracle VirtualBox</a><br/>
 </p>
 
+<p>
+After that, we will need to download both 
+<a href="https://www.microsoft.com/en-us/software-download/windows10">Windows 10</a> 
+and 
+<a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019">Windows Server 2019</a>.
+</p>
+
+  - Make sure to choose "ISO" files to download.
+  - Ideally have them downloaded to your desktop to find them easier in the following steps.
+
+Once you have them both donwnloaded we can proceed.
+
+<br />
+<hr>
+
+
+<h2>Step 2: Creating the VMs inside VirtualBox</h2><br />
+
+Open up VirtualBox
+  - Select "NEW"
+  - Name each of them something easy to remember.
+    - For example "*Domain Controller*" and "*Client1*"
+  - Select the correct ISO image from wherever they are on your disk 
+    - (You should have downloaded to your Desktop)
+  - Click "Next"
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20151900.png?raw=true)
+
+Now we will setup the Username(s) and Password(s)
+
+  - Set up a basic username and password, something easy for testing. 
+  - Allocate between 2GB to 4GB of RAM depending on your system. 
+  - You can leave the rest of the settings as they are.
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
+
 
 
 

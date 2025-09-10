@@ -136,6 +136,11 @@ Once inside the machine find the top menu that says "Devices" → Insert Guest A
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161600.png?raw=true)
 
+Run the installer. Now we manually shut down and restart the VM.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161854.png?raw=true)
+
+
 <br />
 <hr>
 <h3>Disclaimer</h3>

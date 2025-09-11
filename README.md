@@ -59,7 +59,7 @@ and
   - Make sure to choose "ISO" files to download.
   - Ideally have them downloaded to your desktop to find them easier in the following steps.
 
-Once you have them both donwnloaded we can proceed.
+Once you have them both downloaded we can proceed.
 
 <br />
 <hr>
@@ -76,6 +76,10 @@ Open up VirtualBox
   - Click ""Next""
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20151900.png?raw=true)
+
+<br />
+<hr>
+<br />
 
 Now we will setup the Username(s) and Password(s)
 
@@ -97,7 +101,6 @@ Let’s tweak a few general settings to make working with the VMs smoother.
 
 <br />
 <hr>
-
 <h2>! The next steps apply only to the Domain Controller VM: !</h2>
 
   - Add a second network adapter. 
@@ -147,7 +150,7 @@ Run the installer. Now we manually shut down and restart the VM.
 <br />
 <hr>
 
-<h2>Step 3: Configuring the Internal NIC </h2><br />
+<h2>Step 3: Configuring the Internal NIC </h2>
 
 The external NIC will be automatically assigned by your home router so we don't need to configure it.
 

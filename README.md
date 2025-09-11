@@ -1,6 +1,8 @@
 # Active Directory Enterprise Network Deployment
 
-<h2>Description</h2>
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/image%20(6).png?raw=true)
+
+<h2>Introduction</h2>
 This guide is a practical walkthrough for setting up a Windows-based domain. It’s designed for anyone looking to build a working Active Directory setup from scratch. Whether you're learning, testing, or preparing for real-world scenarios.
 
 You’ll go step-by-step through installing Windows Server 2019 and Windows 10, configuring network adapters, setting up a domain controller, and deploying essential services like DHCP, DNS, RAS/NAT, and Active Directory. You'll also learn how to automate user creation with PowerShell and verify connectivity between machines.
@@ -195,6 +197,9 @@ At this point, both NICs are configured.
 <hr>
 
 <h2>Step 4: Creating the Domain and Users </h2>
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-10%20232026.png?raw=true)
+
 
 Now we need to open Server Manager and select Add Roles and Features
 
@@ -391,6 +396,9 @@ Now you should see the following:
 <hr>
 
 <h2>Step 7: Configuring DHCP </h2><br />
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-10%20232226.png?raw=true)
+
 
 To allow Windows clients to access the internet, we need to install DHCP. The DHCP server automatically assigns IP addresses to clients so they can connect to the network.
 

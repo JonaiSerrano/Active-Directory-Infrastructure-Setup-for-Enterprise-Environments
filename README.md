@@ -569,21 +569,47 @@ Open up VirtualBox
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152044.png?raw=true)
 
+Remember to also enable Bidirectional Clipboard and Drag-and-Drop so you can easily move files and text between your host and the virtual machine.
+
+![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20152314.png?raw=true)
+
+In the Network tab make sure you have the "Internal Network" selected
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20213525.png?raw=true)
+
+<br>
+<hr>
+<br>
 
 
-Let’s tweak a few general settings to make working with the VMs smoother.
-  - Enable Bidirectional Clipboard and Drag-and-Drop so you can easily move files and text between your host and the virtual machines.
+Follow the installation instructions like normal to install Windows 10 on the VM.
 
+When prompted choose the following:
+- Select “I don’t have a product key” 
+- <b>CHOOSE WINDOWS 10 PRO</b>
+  - Windows 10 __HOME__ won’t allow you to join the company domain
 
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20213729.png?raw=true)
 
+- Select setup for __Personal Use__
 
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20215112.png?raw=true)
 
+- Go ahead and choose "Offline Account" or "Local Account"
 
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20215235.png?raw=true)
 
+- You can choose to name it "User" for now
 
-
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20215340.png?raw=true)
 
 Once it’s running, open Network Settings and make sure it’s connected to the Internal Network—the same one your domain controller is using.
+
+You should see it automatically be connected to "mydomain.com"
+
+That means that we succesfully have bridged the computer's internal NIC to the NIC on the Domain Controller.
+
+PICTURE
 
 
 

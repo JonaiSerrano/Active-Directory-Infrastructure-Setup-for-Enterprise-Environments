@@ -609,40 +609,88 @@ You should see it automatically be connected to "mydomain.com"
 
 That means that we succesfully have bridged the computer's internal NIC to the NIC on the Domain Controller.
 
-https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20220328.png?raw=true
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20220328.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20184239.png?raw=true)
+
+Now, Navigate to Settings and choose
+- Rename this PC (Advanced)
+- Click on CHANGE 
+- Name the pc
+   - CLIENT1
+- Member of:
+  - mydomain.com (or the name of your domain)
+- Press Okay
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20133656.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20134245.png?raw=true)
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20134405.png?raw=true)
+
+After that you need to login with the Admin account and password we created originally
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20134541.png?raw=true)
+
+Success! We are now officially a part of the Domain!
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20134615.png?raw=true)
+
+Go ahead and restart the VM for the changes to take effect.
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20135824.png?raw=true)
+
+We will now attempt to login using the names we imported using Powershell
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20141554.png?raw=true)
+
+Remember the Password that you created (Password1) ? 
+
+You need to use it to sign in with any of the Usernames we populated.
+
+Here I am using "kbutcher"
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20151828.png?raw=true)
+
+Once you see windows setting up for the first time you'll know everything went correctly!
+
+https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20151850.png?raw=true
+
+To finalize and make sure you are logged in to the correct profile:
+- Go to CMD and type
+   - Whoami
+
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20151954.png?raw=true)
+
+We have successfully logged in with one of the usernames!
+
+To double check DHCP run
+- ipconfig /release
+- ipconfig /renew
+
+Then type ipconfig, you should see a new IP come up
+
+
+To check your DNS settings try running:
+- ping mydomain.com
+
+That will let you know if the server is responsive
+
+Congratulations! The ADE is now fully functional:
+
+Domain Controller with AD, DNS, DHCP, RAS/NAT
+
+Windows 10 client joined to the domain
+
+Connectivity and services verified
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br />
 <h3>Disclaimer</h3>
 - This content is intended solely for educational purposes. Any replication, in whole or in part, for malicious or unethical use may constitute a legal offense.
-- “Screenshots are for demonstration only. Please do not reuse without permission.”
+
+“Screenshots are for demonstration only. Please do not reuse without permission.”
+
+JNS
 <hr>

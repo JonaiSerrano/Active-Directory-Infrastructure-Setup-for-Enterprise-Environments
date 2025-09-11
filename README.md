@@ -1,10 +1,11 @@
 # Active Directory Enterprise Network Deployment
 
 <h2>Description</h2>
-This project showcases a full-scale internal network setup for an enterprise environment using Active Directory Domain Services, all within a virtual lab. It walks through the detailed process of creating departments and user accounts tailored to organizational needs, all managed centrally through a domain controller.
+This guide is a practical walkthrough for setting up a Windows-based domain. It’s designed for anyone looking to build a working Active Directory setup from scratch. Whether you're learning, testing, or preparing for real-world scenarios.
 
-In this configuration, devices within the internal network access the public internet exclusively through the main domain controller. This ensures that network activity is tightly governed by administrators, with permissions and controls defined by their roles and overseen by a SysAdmin. <br />
+You’ll go step-by-step through installing Windows Server 2019 and Windows 10, configuring network adapters, setting up a domain controller, and deploying essential services like DHCP, DNS, RAS/NAT, and Active Directory. You'll also learn how to automate user creation with PowerShell and verify connectivity between machines.
 
+By the end, you’ll have a fully functional domain environment that mirrors what you'd find in a small business or enterprise setting—ready for experimentation, troubleshooting, or deeper learning. <br />
 
 <h2>Languages and Utilities Used</h2>
 
@@ -12,7 +13,6 @@ In this configuration, devices within the internal network access the public int
 - <b>Active Directory Domain Services</b> 
 - <b>PowerShell</b>
 - <b>Python</b> 
-
 
 <h2>Environments Used </h2>
 
@@ -28,15 +28,15 @@ In this configuration, devices within the internal network access the public int
 <h2>Major objectives in this project: </h2>
 
 1. Establish a Virtualized Enterprise Network Environment
-    - Set up a fully functional internal network using VirtualBox, simulating an enterprise infrastructure with multiple virtual machines.
+    - Set up a fully functional internal network, simulating an enterprise infrastructure with "multiple" virtual machines.
 3. Deploy and Configure Active Directory Domain Services (AD DS)
     - Install Windows Server 2019 and configure it as a domain controller to manage users, devices, and organizational units centrally.
 5. Design Organizational Structure with Departments and Users
-    - Create a realistic enterprise hierarchy by setting up departments and user accounts based on business roles and access needs.
+    - Automate user creation using PowerShell scripting. Save time and reduce manual errors by generating multiple domain users from a script..
 7. Implement Network Access Control via Domain Controller
     - Ensure all internal devices route internet access through the domain controller, allowing administrators to monitor and govern traffic.
-9. Utilize Administrative Tools for System Management and Automation
-    - Leverage PowerShell, Server Manager, and Python scripts to automate tasks, enforce policies, and maintain system integrity across the network.
+9. Provide a clear, beginner-friendly guide for replication
+    - Make the setup process accessible for learners, professionals, and anyone building a home lab or testing environment.
 
 <hr>
 
@@ -57,9 +57,9 @@ and
 </p>
 
   - Make sure to choose "ISO" files to download.
-  - Ideally have them downloaded to your desktop to find them easier in the following steps.
+  - Ideally, have them downloaded to your desktop to find them more easily in the following steps.
 
-Once you have them both downloaded we can proceed.
+Once you have them both downloaded, we can proceed.
 
 <br />
 <hr>
@@ -72,7 +72,7 @@ Open up VirtualBox
   - Name each of them something easy to remember.
     - For example "*Domain Controller*" and "*Client1*"
   - Select the correct ISO image from wherever they are on your disk 
-    - (You should have downloaded to your Desktop)
+    - (You should have downloaded it to your Desktop)
   - Click ""Next""
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20151900.png?raw=true)
@@ -81,12 +81,12 @@ Open up VirtualBox
 <hr>
 <br />
 
-Now we will setup the Username(s) and Password(s)
+Now we will set up the Username(s) and Password(s)
 
   - Set up a basic username and password, something easy for testing. 
-  - Allocate between 2GB to 4GB of RAM depending on your system. 
+  - Allocate between 2GB and 4GB of RAM depending on your system. 
   - You can leave the rest of the settings as they are.
-  - At least 50gb of allocated space
+  - At least 50 GB of allocated space
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20213329.png?raw=true)
 
@@ -109,11 +109,11 @@ Let’s tweak a few general settings to make working with the VMs smoother.
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20154018.png?raw=true)
 
-Double click on the VM to boot and wait for it to go through its boot-up process. 
+Double-click on the VM to boot and wait for it to go through its boot-up process. 
 
 Proceed till you are given to choose an “Operating System”
   - Choose Windows Server 2019 (DESKTOP EXPERIENCE)
-    - If you do not select Desktop you will be left with the CMD and no UI
+    - If you do not select Desktop, you will be left with the CMD and no UI
   - Click "Next"  
   - Accept the license terms
 
@@ -133,17 +133,25 @@ Once it’s done, you’ll be asked to set a password.
 
 Success! Your server is up and running.
 
+<hr>
+
+
 <h5> Tip (Optional)</h5>
 
-Once inside the machine find the top menu that says "Devices" → Insert Guest Additions CD. This lets the VM resize automatically and improves the user interface.
+Once inside the machine, find the top menu that says "Devices" 
+- Insert the Guest Additions CD.
+  - This lets the VM resize automatically and improves the user interface.
 - Navigate to File Explorer and locate the VirtualBox Additions file. 
 - Open it and choose the AMD64 installer.
+- Run the installer.
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161504.png?raw=true)
 
 ![Screenshot](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161600.png?raw=true)
 
-Run the installer. Now we manually shut down and restart the VM.
+<hr>
+
+Now we manually shut down and restart the VM.
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20161854.png?raw=true)
 
@@ -657,7 +665,7 @@ Here I am using "kbutcher"
 
 Once you see windows setting up for the first time you'll know everything went correctly!
 
-https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20151850.png?raw=true
+![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-09%20151850.png?raw=true)
 
 To finalize and make sure you are logged in to the correct profile:
 - Go to CMD and type
@@ -667,33 +675,35 @@ To finalize and make sure you are logged in to the correct profile:
 
 We have successfully logged in with one of the usernames!
 
-To double check DHCP run
+<hr>
+
+
+If you'd like to double-check your DHCP server, you can run the following commands:
 - ipconfig /release
 - ipconfig /renew
 
-Then type ipconfig, you should see a new IP come up
+After, type ipconfig, you should see a new IP come up
 
+<hr>
 
-To check your DNS settings try running:
+If you'd like to double-check your DNS server, you can run the following commands:
 - ping mydomain.com
 
-That will let you know if the server is responsive
+That will let you know if the server is responsive by sending bits of data and measuring the time it takes for them to get back.
 
-Congratulations! The ADE is now fully functional:
+<hr>
 
-Domain Controller with AD, DNS, DHCP, RAS/NAT
+Congratulations! Your Active Directory Domain is now fully functional:
 
-Windows 10 client joined to the domain
-
-Connectivity and services verified
-
-
+<hr>
 
 <br />
 <h3>Disclaimer</h3>
 - This content is intended solely for educational purposes. Any replication, in whole or in part, for malicious or unethical use may constitute a legal offense.
 
-“Screenshots are for demonstration only. Please do not reuse without permission.”
+<hr>
+
+Screenshots are for demonstration only. Please do not reuse without permission.
 
 JNS
 <hr>

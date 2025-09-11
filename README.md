@@ -3,7 +3,7 @@
 <h2>Description</h2>
 This project showcases a full-scale internal network setup for an enterprise environment using Active Directory Domain Services, all within a virtual lab. It walks through the detailed process of creating departments and user accounts tailored to organizational needs, all managed centrally through a domain controller.
 
-In this configuration, devices within the internal network access the public internet exclusively through the main domain controller. This ensures that network activity is tightly governed by administrators, with permissions and controls defined by their roles and overseen by a superadmin. <br />
+In this configuration, devices within the internal network access the public internet exclusively through the main domain controller. This ensures that network activity is tightly governed by administrators, with permissions and controls defined by their roles and overseen by a SysAdmin. <br />
 
 
 <h2>Languages and Utilities Used</h2>
@@ -221,7 +221,7 @@ Back in Server Manager, you’ll see a yellow flag
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20175332.png?raw=true)
 
-- Click Next all the way through until you’re prompted to installon the "Prerequisites Check"
+- Click Next all the way through until you’re prompted to install the "Prerequisites Check"
 - Click Install
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20175539.png?raw=true)
@@ -374,7 +374,7 @@ Now you should see the following:
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20191220.png?raw=true)
 
-<b>As you can see below, everything was configured correctly. We succesfully created RAS/NAT</b>
+<b>As you can see below, everything was configured correctly. We successfully created RAS/NAT</b>
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20191400.png?raw=true)
 
@@ -610,7 +610,7 @@ Once it’s running, open Network Settings and make sure it’s connected to the
 
 You should see it automatically be connected to "mydomain.com"
 
-That means that we succesfully have bridged the computer's internal NIC to the NIC on the Domain Controller.
+That means that we successfully bridged the computer's internal NIC to the Internal NIC on the Domain Controller.
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20220328.png?raw=true)
 

@@ -603,13 +603,15 @@ When prompted choose the following:
 
 ![alt text](https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20215340.png?raw=true)
 
-Once it’s running, open Network Settings and make sure it’s connected to the Internal Network—the same one your domain controller is using.
+Once it’s running, open Network Settings and make sure it’s connected to the Internal Network, the same one your domain controller is using.
 
 You should see it automatically be connected to "mydomain.com"
 
 That means that we succesfully have bridged the computer's internal NIC to the NIC on the Domain Controller.
 
-PICTURE
+https://github.com/JonaiSerrano/project-screenshots-private/blob/main/Screenshot%202025-09-08%20220328.png?raw=true
+
+
 
 
 
